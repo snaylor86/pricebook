@@ -10,7 +10,6 @@ pricebookApp.controller('homeController', ['$scope', '$location', 'itemService',
     
     storePromise.then(function (storeData) {
         $scope.stores = storeData;
-        console.log($scope.stores);
     });
     
     $scope.searchItem = itemService.searchItem;
