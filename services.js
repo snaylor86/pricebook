@@ -1,41 +1,31 @@
-pricebookApp.service('itemService', function() {
+pricebookApp.service('itemService', ['$http', '$q', function($http, $q) {
    
+    this.searchItem = "";
+    
+    var itemDefer = $q.defer();
+    
     this.getItems = function() {
-        var items = {
-            "items" : [
-            {
-            "id" : "1",
-            "name" : "Hot Dogs",
-            "unit" : "bag",
-            "stores" : [
-                {
-                    "id" : "1",
-                    "price" : "1.99"
-                },
-                {
-                    "id" : "2",
-                    "price" : "1.50"
-                }   
-            ]
-            },
-                {
-            "id" : "2",
-            "name" : "Apples",
-            "unit" : "lbs",        
-            "stores" : [
-                {
-                    "id" : "1",
-                    "price" : "0.99"
-                },
-                {
-                    "id" : "2",
-                    "price" : "1.20"
-                }   
-            ]
-            }
-            ]
-        }     
-        };
-        return items;
+
+        $http.get('data/items.json').success(function(itemData) {
+            itemDefer.resolve(itemData);
+        });
+        
+        return itemDefer.promise;
     };
-});
+    
+}]);
+
+pricebookApp.service('storeService', ['$http', '$q', function($http, $q) {
+   
+    var storeDefer = $q.defer();
+    
+    this.getStores = function() {
+        
+        $http.get('data/stores.json').success(function(storeData) {
+            storeDefer.resolve(storeData);
+        });
+        
+        return storeDefer.promise; 
+    };
+
+}]);

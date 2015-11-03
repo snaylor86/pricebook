@@ -1,1 +1,27 @@
-<h1>Home</h1>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h4>Search</h4>
+        <form>
+            <div class="form-group">
+                <input type="text" ng-model="searchItem" class="form-control"/>
+            </div>
+        </form>
+    </div>
+</div>
+<hr/>
+<div>
+    <div ng-repeat="item in items">
+        <div class="row">
+            <div class="col-md-12">
+                <item-display item-name="item.name" item-Unit="item.unit" item-amount="item.amount"></item-display>
+                <div ng-repeat="store in stores">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <store-display store-name="store.name" store-id="store.id" get-store-price="getStorePrice(storeId, item)"></store-display>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
