@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="pricebookApp">
+    <head>
+        <title>Pricebook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE-Edge">
+        <meta charset="UTF-8">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <style>
+            html, body, input, select, textarea
+            {
+                font-size: 1.05em;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js">
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js">
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.min.js">
+        </script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/routes.js"></script>
+        <script src="scripts/controllers/controllers.js"></script>
+        <script src="scripts/services.js"></script>
+        <script src="scripts/directives.js"></script>
+    </head>
+    <body>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#/">Pricebook</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/"> <i class="fa fa-home"></i>Items</a></li>
+                    <li><a href="#/stores"><i class="fa fa-stores"></i>Stores</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+        <div class="container">
+            <div ng-view></div>
+        </div>
+        
+        
+    </body>
+
+
+</html>
