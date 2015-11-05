@@ -18,6 +18,8 @@ pricebookApp.service('itemService', ['$http', '$q', function($http, $q) {
 
 pricebookApp.service('storeService', ['$http', '$q', function($http, $q) {
    
+    this.searchStore = "";
+    
     var storeDefer = $q.defer();
     
     this.getStores = function() {

@@ -1,4 +1,4 @@
-pricebookApp.controller('homeController', ['$scope', '$location', 'itemService', 'storeService', function($scope, $location, itemService, storeService)  {
+pricebookApp.controller('homeCtrl', ['$scope', '$location', 'itemService', 'storeService', function($scope, $location, itemService, storeService)  {
     
     var itemPromise = itemService.getItems();
     
@@ -18,30 +18,63 @@ pricebookApp.controller('homeController', ['$scope', '$location', 'itemService',
        itemService.searchItem = $scope.searchItem; 
     });
     
+    $scope.searchStore = storeService.searchStore;
+    
+    $scope.$watch('searchStore', function() {
+        storeService.searchStore = $scope.searchStore;
+    });
+    
+    $scope.reverseSortState = false;
+    
+    $scope.reverseButtonText = function() {
+        if($scope.reverseSortState){
+            return "Z-A";
+        }else{
+            return "A-Z";
+        }
+    };
+    
+    $scope.reverseButtonText();
+    
+    $scope.reverseSort = function() {
+        if($scope.reverseSortState){
+            $scope.reverseSortState = false;
+            $scope.reverseButtonText();
+        }else{
+            $scope.reverseSortState = true;
+            $scope.reverseButtonText();
+        }
+    };
+    
     $scope.getStorePrice = function(storeId, item) {
         for(var i = 0; i < item.stores.length; i++) {
             if(item.stores[i].id == storeId) {
                 return item.stores[i].price;
-            } 
+            }
         }
         return "N/A";
     };
     
-}]);
-
-pricebookApp.controller('storesController', ['$scope', '$location', function($scope, $location) {
-    
-    
-    
-}]);
-
-pricebookApp.controller('itemEditController', ['$scope', '$location', function($scope, $location) {
-    
-    
+    // test method for karma testing framework
+    $scope.sayHello = function() {
+        return "hello";
+    };
     
 }]);
 
-pricebookApp.controller('storeEditController', ['$scope', '$location', function($scope, $location) {
+pricebookApp.controller('storesCtrl', ['$scope', '$location', function($scope, $location) {
+    
+    
+    
+}]);
+
+pricebookApp.controller('itemEditCtrl', ['$scope', '$location', function($scope, $location) {
+    
+    
+    
+}]);
+
+pricebookApp.controller('storeEditCtrl', ['$scope', '$location', function($scope, $location) {
     
     
     

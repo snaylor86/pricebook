@@ -1,26 +1,33 @@
 <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <h4>Search</h4>
-        <form>
-            <div class="form-group">
-                <input type="text" ng-model="searchItem" class="form-control"/>
-            </div>
-        </form>
+    <div class="col-lg-6">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-model="reverseSortState" ng-click="reverseSort()"> 
+                    {{ reverseButtonText() }}
+                </button>
+            </span>
+                <input type="text" ng-model="searchItem" class="form-control" placeholder="Item Name" autofocus/>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="input-group">
+                <input type="text" ng-model="searchStore" class="form-control" placeholder="Store"/>
+        </div>
     </div>
 </div>
 <hr/>
 <div>
-    <div ng-repeat="item in items">
+    <div ng-repeat="item in items | filter: searchItem | orderBy: 'name':reverseSortState">
         <div class="row">
             <div class="col-md-12">
-                <item-display item-name="item.name" item-Unit="item.unit" item-amount="item.amount"></item-display>
-                <div ng-repeat="store in stores">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <store-display store-name="store.name" store-id="store.id" get-store-price="getStorePrice(storeId, item)"></store-display>
+                <item-display  item="item" item-name="item.name" item-Unit="item.unit" item-amount="item.amount" stores="stores" get-store-price="getStorePrice"></item-display>
+                   <!-- <div ng-repeat="store in stores">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <store-display store-name="store.name" store-id="store.id" get-store-price="getStorePrice(storeId, $parent.item)"></store-display>
+                            </div>
                         </div>
-                    </div>
-                </div> 
+                    </div> --> 
             </div>
         </div>
     </div>

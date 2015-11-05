@@ -4,11 +4,15 @@ pricebookApp.directive("itemDisplay", function() {
        restrict: "E",
        templateUrl: 'views/directives/itemDisplay.html',
        replace: true,
+       transclude: true,
        scope: {
-           itemName : "=",
-           itemUnit : "=",
-           itemAmount : "=",
-           itemStores : "="
+           itemName: "=",
+           itemUnit: "=",
+           itemAmount: "=",
+           itemStores: "=",
+           item: "=",
+           stores: "=",
+           getStorePrice: "="
        }
    };
     
@@ -19,10 +23,13 @@ pricebookApp.directive("storeDisplay", function() {
         restrict: "E",
         templateUrl: 'views/directives/storeDisplay.html',
         replace: true,
+        transclude: true,
         scope: {
-            storeName : "=",
-            storeId : "=",
-            getStorePrice : "&"
+            storeName: "=",
+            storeId: "=",
+            item: "=",
+            getStorePrice: "&"
+            
         }
     };
 });

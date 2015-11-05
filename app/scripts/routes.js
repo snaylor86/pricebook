@@ -5,19 +5,19 @@ pricebookApp.config(function ($routeProvider) {
     
     .when('/', {
         templateUrl: 'views/home.html',
-        controller: 'homeController'  
+        controller: 'homeCtrl'  
     })
     .when('/stores', {
         templateUrl: 'views/stores.html',
-        controller: 'storesController'  
+        controller: 'storesCtrl'  
     })
     .when('/item/:itemId', {
         templateUrl: 'views/editItem.html',
-        controller: 'itemEditController'  
+        controller: 'itemEditCtrl'  
     })
     .when('/store/:storeId', {
         templateUrl: 'views/EditStore.html',
-        controller: 'storeEditController'   
+        controller: 'storeEditCtrl'   
     })
     
 });

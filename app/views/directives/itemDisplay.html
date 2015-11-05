@@ -1,4 +1,13 @@
 <div>
-    <h3>{{ itemName }}</h3>
-    <h4>{{ itemAmount }} {{ itemUnit }}</h4>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {{ itemName }}
+        </div>
+        <div class="panel-body">
+        {{ itemAmount }} {{ itemUnit }}
+             <div ng-repeat="store in stores | orderBy: 'itemPrice' ">
+                <store-display store-name="store.name" store-id="store.id" get-store-price="getStorePrice(storeId, item)"></store-display>
+            </div>
+        </div>
+    </div>
 </div>
