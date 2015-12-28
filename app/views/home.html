@@ -1,34 +1,33 @@
 <div class="row">
-    <div class="col-lg-6">
-        <div class="input-group">
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-model="reverseSortState" ng-click="reverseSort()"> 
-                    {{ reverseButtonText() }}
-                </button>
-            </span>
-                <input type="text" ng-model="searchItem" class="form-control" placeholder="Item Name" autofocus/>
-        </div>
+  <div class="col-lg-6" style="position: relative">
+    <div class="input-group">
+      <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-model="reverseSortState" ng-click="reverseSort()">
+            {{ reverseButtonText() }}
+          </button>
+      </span>
+      <input type="text" ng-model="searchItem" class="form-control" placeholder="Item Name" autofocus/>
     </div>
-    <div class="col-lg-6">
-        <div class="input-group">
-                <input type="text" ng-model="searchStore" class="form-control" placeholder="Store"/>
-        </div>
+  </div>
+  <div class="col-lg-6" style="position: relative">
+    <div class="input-group">
+      <input type="text" ng-model="searchStore" class="form-control" placeholder="Store"/>
     </div>
+  </div>
 </div>
-<hr/>
+<button type=button" class="btn btn-default">
+  Add Item
+</button>
 <div>
-    <div ng-repeat="item in items | filter: searchItem | orderBy: 'name':reverseSortState">
-        <div class="row">
-            <div class="col-md-12">
-                <item-display  item="item" item-name="item.name" item-Unit="item.unit" item-amount="item.amount" stores="stores" get-store-price="getStorePrice"></item-display>
-                   <!-- <div ng-repeat="store in stores">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <store-display store-name="store.name" store-id="store.id" get-store-price="getStorePrice(storeId, $parent.item)"></store-display>
-                            </div>
-                        </div>
-                    </div> --> 
-            </div>
-        </div>
+  <div class="fade_panel" ng-repeat="item in items | filter: searchItem | orderBy: 'name':reverseSortState">
+    <div class="row">
+      <div class="col-md-12">
+        <item-display item="item" item-name="item.name" item-Unit="item.unit" item-amount="item.amount" stores="stores"
+                      get-store-price="getStorePrice" get-lowest-price-store-id="getLowestPriceStoreId"
+                      search-store="searchStore" get-store-name="getStoreName" show-all-stores="showAllStores"
+                      toggle-show-all-stores="toggleShowAllStores()"
+                      show-all-stores-icon="showAllStoresIcon"></item-display>
+      </div>
     </div>
+  </div>
 </div>

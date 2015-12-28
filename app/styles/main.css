@@ -1,83 +1,76 @@
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+.fade_panel.ng-enter, 
+.fade_panel.ng-leave,
+.fade_panel.ng-move
+{ 
+  -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  position: relative;
+  display: block;
+} 
+ 
+.fade_panel.ng-enter.fade_panel.ng-enter-active, 
+.fade_panel.ng-leave {
+  opacity: 1;
+  top: 0;
+  height: 105px;
+}
+ 
+.fade_panel.ng-leave.fade_panel.ng-leave-active,
+.fade_panel.ng-enter {
+  opacity: 0;
+  top: -50px;
+  height: 0px;
 }
 
-body {
-  padding: 0;
+.fade_panel.ng-move {
+    opacity: 0;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+.fade_panel.ng-move-active {
+    transition: top 500ms ease;
+    opacity: 1;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
+/* Will come back to animations later
+
+*/
+.single_store {
+    
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+.single_store.ng-hide-add {
+    
 }
 
-.container-narrow > hr {
-  margin: 30px 0;
+.single_store.ng-hide-remove {
+    
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
+.store_list {
+
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
+.store_list.ng-hide-add {
+
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
+.store_list.ng-hide-remove {
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+}
+
+/*Animations for items page item panel show all stores arrow
+*/
+.down {
+    transform: rotate(90deg);
+}
+
+.rotate_90 {
+    transition: all .1s ease-in-out;
+}
+
+#toggleShowAllStoresArrow:hover {
+    text-decoration: none;
 }

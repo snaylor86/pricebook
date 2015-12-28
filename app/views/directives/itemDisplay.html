@@ -1,13 +1,27 @@
 <div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            {{ itemName }}
-        </div>
-        <div class="panel-body">
-        {{ itemAmount }} {{ itemUnit }}
-             <div ng-repeat="store in stores | orderBy: 'itemPrice' ">
-                <store-display store-name="store.name" store-id="store.id" get-store-price="getStorePrice(storeId, item)"></store-display>
-            </div>
-        </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      {{ itemName }} - {{ itemAmount }} {{ itemUnit }}
     </div>
+    <div class="panel-body">
+      <div class="right rotate_90" ng-class="{'right': !showAllStores, 'down': showAllStores}"
+           style="position: relative; float: left">
+        <a class="glyphicon glyphicon-menu-right" id="toggleShowAllStoresArrow" ng-model="showAllStores"
+           ng-click="toggleShowAllStores()">
+        </a>
+      </div>
+      <div style="position: relative; margin-left:30px">
+        <div class="single_store" ng-show="!showAllStores">
+          <store-display stores="stores" store-id="getLowestPriceStoreId(item)"
+                         store-name="getStoreName(getLowestPriceStoreId(item), stores)"
+                         get-store-price="getStorePrice(storeId,item)"></store-display>
+        </div>
+        <div class="store_list" ng-show="showAllStores"
+             ng-repeat="store in stores | filter: searchStore| orderBy: 'itemPrice' ">
+          <store-display store-name="store.name" store-id="store.id"
+                         get-store-price="getStorePrice(storeId, item)"></store-display>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

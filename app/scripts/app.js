@@ -1,1 +1,1 @@
-var pricebookApp = angular.module('pricebookApp', ['ngRoute', 'ngResource']);
+var pricebookApp = angular.module('pricebookApp', ['ngRoute', 'ngResource', 'ngAnimate']);

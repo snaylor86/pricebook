@@ -2,7 +2,7 @@
     {
         "id" : "1",
         "name" : "Hot Dogs",
-        "unit" : "bag",
+        "unit" : "package",
         "amount" : "1",
         "stores" : [
             {
