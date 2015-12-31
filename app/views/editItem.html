@@ -1,2 +1,31 @@
-<h1>Edit Item</h1>
-<p>{{}}</p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Edit Item</h1>
+    <form ng-submit="submit()">
+      <div class="form-group">
+        <label value="Name">Name</label>
+        <input type="text" ng-model="item.name" ng-model-options="{ updateOn: 'submit' }" class="form-control top-buffer"  placeholder="name"/>
+        <label value="Quantity">Quantity</label>
+        <input type="text" ng-model="item.quantity" class="form-control top-buffer" placeholder="quantity"/>
+        <label value="Units">Units</label>
+        <input type="text" ng-model="item.unit" class="form-control"  placeholder="units"/>
+        <label value="Store">Stores</label>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div ng-repeat="store in stores | orderBy : 'name'">
+                  <edit-item-store-display item="item"
+                                           store-id="store.id"
+                                           store-name="store.name"
+                                           stores="stores"
+                                           get-store-price="getStorePrice(store.id, item)"
+                                           get-item-store-index="getItemStoreIndex(store.id, item)">
+                  </edit-item-store-display>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input class="btn btn-warning col-md-offset-1 col-md-4" value="Cancel" ng-click="cancelEdit()"/>
+      <input type="submit" class="btn btn-primary col-md-offset-2 col-md-4" value="Save"/>
+    </form>
+  </div>
+</div>

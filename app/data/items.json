@@ -1,9 +1,9 @@
-[  
+[
     {
         "id" : "1",
         "name" : "Hot Dogs",
         "unit" : "package",
-        "amount" : "1",
+        "quantity" : "1",
         "stores" : [
             {
                 "id" : "1",
@@ -12,15 +12,15 @@
             {
                 "id" : "2",
                 "price" : "1.50"
-            }   
+            }
         ]
     }
 ,
     {
         "id" : "2",
         "name" : "Apples",
-        "unit" : "lbs",        
-        "amount" : "1",
+        "unit" : "lbs",
+        "quantity" : "1",
         "stores" : [
             {
                 "id" : "1",
@@ -29,14 +29,14 @@
             {
                 "id" : "2",
                 "price" : "1.20"
-            }   
-        ] 
+            }
+        ]
     },
        {
         "id" : "3",
         "name" : "Oranges",
-        "unit" : "lbs",        
-        "amount" : "1",
+        "unit" : "lbs",
+        "quantity" : "1",
         "stores" : [
             {
                 "id" : "1",
@@ -45,7 +45,7 @@
             {
                 "id" : "2",
                 "price" : "0.99"
-            }   
-        ] 
-    }  
+            }
+        ]
+    }
 ]

@@ -1,8 +1,11 @@
 <div>
   <div class="panel panel-default">
     <div class="panel-heading">
-      {{ itemName }} - {{ itemAmount }} {{ itemUnit }}
+      <a href="#/item/{{item.id}}">
+        {{ itemName }} - {{ itemQuantity }} {{ itemUnit }}
+      </a>
     </div>
+
     <div class="panel-body">
       <div class="right rotate_90" ng-class="{'right': !showAllStores, 'down': showAllStores}"
            style="position: relative; float: left">

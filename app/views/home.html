@@ -15,14 +15,19 @@
     </div>
   </div>
 </div>
-<button type=button" class="btn btn-default">
-  Add Item
-</button>
+<a href="#/item/0">
+  <div class="control-group" style="padding: 10px 0px 10px 0px">
+    <button type=button" class="btn btn-default">
+      Add Item
+    </button>
+  </div>
+</a>
+
 <div>
   <div class="fade_panel" ng-repeat="item in items | filter: searchItem | orderBy: 'name':reverseSortState">
     <div class="row">
       <div class="col-md-12">
-        <item-display item="item" item-name="item.name" item-Unit="item.unit" item-amount="item.amount" stores="stores"
+        <item-display item="item" item-name="item.name" item-Unit="item.unit" item-quantity="item.quantity" stores="stores"
                       get-store-price="getStorePrice" get-lowest-price-store-id="getLowestPriceStoreId"
                       search-store="searchStore" get-store-name="getStoreName" show-all-stores="showAllStores"
                       toggle-show-all-stores="toggleShowAllStores()"

@@ -9,7 +9,7 @@ pricebookApp.directive("itemDisplay", function() {
        scope: {
            itemName: "=",
            itemUnit: "=",
-           itemAmount: "=",
+           itemQuantity: "=",
            itemStores: "=",
            item: "=",
            stores: "=",
@@ -22,7 +22,7 @@ pricebookApp.directive("itemDisplay", function() {
            showAllStoresIcon: '='
        }
    };
-    
+
 });
 
 pricebookApp.directive("storeDisplay", function() {
@@ -39,7 +39,7 @@ pricebookApp.directive("storeDisplay", function() {
             getStorePrice: "&",
             getLowestPriceStoreId: "&",
             getStoreName: "&"
-            
+
         }
     };
 });
@@ -55,5 +55,24 @@ pricebookApp.directive("storesPageStoreDisplay", function() {
            storeName: "=",
            storeId: "="
        }
-   }; 
+   };
 });
+
+pricebookApp.directive("editItemStoreDisplay", function() {
+  return {
+    restrict: "E",
+    templateUrl: 'views/directives/editItemStoreDisplay.html',
+    replace: true,
+    transclude: true,
+    scope: {
+      item: "=",
+      stores: "=",
+      storeName: "=",
+      StoreId: "=",
+      getStorePrice: "&",
+      getStoreName: "&",
+      getItemStoreIndex: "&",
+      cancelEdit: "&"
+    }
+  }
+})

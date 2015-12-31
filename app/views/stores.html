@@ -10,9 +10,11 @@
         </div>
     </div>
 </div>
-<button type="button" class="btn btn-default">
-  Add Store
-</button>
+<div class="control-group" style="padding: 10px 0px 10px 0px">
+  <button type="button" class="btn btn-default">
+    Add Store
+  </button>
+</div>
 <div>
     <div class="store_panel" ng-repeat="store in stores | filter: searchStore | orderBy: 'name':reverseSortState">
         <div class="row">
